@@ -7510,12 +7510,12 @@ a.anchor-link {
 </style>
 <!-- End of mermaid configuration --></head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
-<main><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=9cba29ed-5ba5-4d94-b032-57a3a822a3dd">
+<main><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=9cba29ed-5ba5-4d94-b032-57a3a822a3dd">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [18]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="sd">"""</span>
@@ -8140,153 +8140,6 @@ a.anchor-link {
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="n">resultaten</span> <span class="o">=</span> <span class="n">main</span><span class="p">()</span>
 </pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>======================================================================
-SIMULATIE — THUISBATTERIJ PV-KLANTEN
-Scenario's: A (vast) | B (dyn) | C/D/E (foresight) | F/G (SCM)
-======================================================================
-
-Batterij: 9.3 kWh / 5.0 kW / 92% eff.
-
-Vast contract (portfoliomethode, consistent met simulatie.py):
-  Afname:          8.33 ct/kWh incl. btw
-  Injectie:        4.02 ct/kWh excl. btw
-
-Dynamisch contract (Eneco Zon &amp; Wind Dynamisch, jan 2024):
-  Afname:          (0,102 × EPEX + 1,0) × 1,06 / 100 €/kWh
-  Injectie:        (0,100 × EPEX − 1,188) / 100 €/kWh (kan negatief)
-
-Netcomponent (beide contracten):
-  Volumetrisch:    4.05 ct/kWh
-  Capaciteit:      44.0 €/kW/jaar (min. 2.5 kW)
-  Databeheer SMR1: 13.39 €/jaar
-  Databeheer SMR3: 14.53 €/jaar
-  Heffingen:       6.7971 ct/kWh
-
-1. Data inladen...
-Fluvius: 4 profielbestanden
-Ember:   Belgium_2024_MWh.csv
-
-Gekoppeld: 1200 klanten | 10,539,600 rijen
-
-2. Facturatiepieken berekenen...
-  Gemiddelde facturatiepiek: 4.45 kW
-
-3. Simulatie per klant (1200 klanten)...
-   1/1200...
-   201/1200...
-   401/1200...
-   601/1200...
-   801/1200...
-   1001/1200...
-
-NCW-parameters: I0=€2,980.50 | r=3.5% | t=10 jaar
-Annuïteitsfactor: 8.3166 | Break-even besparing: €358/jaar
-
-======================================================================
-OVERZICHT RESULTATEN
-======================================================================
-
-── ZP (300 klanten) ──
-  [A] Vast, geen batterij:                €  420.95/jaar
-  [B] Dynamisch, geen batterij:           €  476.26/jaar
-  [C] Vast + batterij (pieksturing):      €  357.78/jaar
-  [D] Dyn  + batterij (prijsarbitrage):   €  384.39/jaar
-  [E] Dyn  + batterij (pieksturing):      €  385.93/jaar
-  [F] Vast + batterij (SCM):              €  292.08/jaar
-  [G] Dyn  + batterij (SCM):              €  334.37/jaar
-  ---
-  Besparing B vs A: € -55.31/jaar (-13.1%) | 0% klanten positief
-  Besparing C vs A: €  63.18/jaar (15.0%) | 73% klanten positief
-  Besparing D vs A: €  36.56/jaar (8.7%) | 68% klanten positief
-  Besparing E vs A: €  35.02/jaar (8.3%) | 68% klanten positief
-  Besparing F vs A: € 128.87/jaar (30.6%) | 100% klanten positief
-  Besparing G vs A: €  86.58/jaar (20.6%) | 81% klanten positief
-  --- NCW (r=3.5%, t=10j, I0=€2,980) ---
-  NCW C: €  -2455 gem. | 0% klanten positief
-  NCW D: €  -2676 gem. | 0% klanten positief
-  NCW E: €  -2689 gem. | 0% klanten positief
-  NCW F: €  -1909 gem. | 0% klanten positief
-  NCW G: €  -2260 gem. | 0% klanten positief
-
-── ZP + EV (300 klanten) ──
-  [A] Vast, geen batterij:                €  809.38/jaar
-  [B] Dynamisch, geen batterij:           €  868.85/jaar
-  [C] Vast + batterij (pieksturing):      €  704.83/jaar
-  [D] Dyn  + batterij (prijsarbitrage):   €  742.29/jaar
-  [E] Dyn  + batterij (pieksturing):      €  739.42/jaar
-  [F] Vast + batterij (SCM):              €  653.61/jaar
-  [G] Dyn  + batterij (SCM):              €  698.25/jaar
-  ---
-  Besparing B vs A: € -59.47/jaar (-7.3%) | 4% klanten positief
-  Besparing C vs A: € 104.55/jaar (12.9%) | 86% klanten positief
-  Besparing D vs A: €  67.08/jaar (8.3%) | 73% klanten positief
-  Besparing E vs A: €  69.95/jaar (8.6%) | 75% klanten positief
-  Besparing F vs A: € 155.77/jaar (19.2%) | 100% klanten positief
-  Besparing G vs A: € 111.13/jaar (13.7%) | 87% klanten positief
-  --- NCW (r=3.5%, t=10j, I0=€2,980) ---
-  NCW C: €  -2111 gem. | 0% klanten positief
-  NCW D: €  -2423 gem. | 0% klanten positief
-  NCW E: €  -2399 gem. | 0% klanten positief
-  NCW F: €  -1685 gem. | 1% klanten positief
-  NCW G: €  -2056 gem. | 0% klanten positief
-
-── ZP + WP (300 klanten) ──
-  [A] Vast, geen batterij:                € 1052.74/jaar
-  [B] Dynamisch, geen batterij:           € 1169.07/jaar
-  [C] Vast + batterij (pieksturing):      €  929.98/jaar
-  [D] Dyn  + batterij (prijsarbitrage):   € 1014.73/jaar
-  [E] Dyn  + batterij (pieksturing):      € 1011.54/jaar
-  [F] Vast + batterij (SCM):              €  867.29/jaar
-  [G] Dyn  + batterij (SCM):              €  963.35/jaar
-  ---
-  Besparing B vs A: €-116.33/jaar (-11.1%) | 0% klanten positief
-  Besparing C vs A: € 122.76/jaar (11.7%) | 88% klanten positief
-  Besparing D vs A: €  38.01/jaar (3.6%) | 70% klanten positief
-  Besparing E vs A: €  41.20/jaar (3.9%) | 69% klanten positief
-  Besparing F vs A: € 185.45/jaar (17.6%) | 100% klanten positief
-  Besparing G vs A: €  89.39/jaar (8.5%) | 81% klanten positief
-  --- NCW (r=3.5%, t=10j, I0=€2,980) ---
-  NCW C: €  -1960 gem. | 0% klanten positief
-  NCW D: €  -2664 gem. | 0% klanten positief
-  NCW E: €  -2638 gem. | 0% klanten positief
-  NCW F: €  -1438 gem. | 1% klanten positief
-  NCW G: €  -2237 gem. | 0% klanten positief
-
-── ZP + WP + EV (300 klanten) ──
-  [A] Vast, geen batterij:                € 1715.51/jaar
-  [B] Dynamisch, geen batterij:           € 1848.92/jaar
-  [C] Vast + batterij (pieksturing):      € 1573.99/jaar
-  [D] Dyn  + batterij (prijsarbitrage):   € 1676.22/jaar
-  [E] Dyn  + batterij (pieksturing):      € 1674.38/jaar
-  [F] Vast + batterij (SCM):              € 1513.39/jaar
-  [G] Dyn  + batterij (SCM):              € 1625.41/jaar
-  ---
-  Besparing B vs A: €-133.41/jaar (-7.8%) | 1% klanten positief
-  Besparing C vs A: € 141.52/jaar (8.2%) | 89% klanten positief
-  Besparing D vs A: €  39.29/jaar (2.3%) | 66% klanten positief
-  Besparing E vs A: €  41.13/jaar (2.4%) | 66% klanten positief
-  Besparing F vs A: € 202.12/jaar (11.8%) | 100% klanten positief
-  Besparing G vs A: €  90.10/jaar (5.3%) | 75% klanten positief
-  --- NCW (r=3.5%, t=10j, I0=€2,980) ---
-  NCW C: €  -1804 gem. | 0% klanten positief
-  NCW D: €  -2654 gem. | 0% klanten positief
-  NCW E: €  -2638 gem. | 0% klanten positief
-  NCW F: €  -1300 gem. | 3% klanten positief
-  NCW G: €  -2231 gem. | 2% klanten positief
-
-✓ Opgeslagen: besparing_pv_batterij.csv
-</pre>
 </div>
 </div>
 </div>
